@@ -184,4 +184,3 @@ body.zones .hot{outline:2px dashed rgba(149,96,255,.85);background:rgba(149,96,2
 .tabstate.on{opacity:1;pointer-events:auto}
 .tabstate>img{position:absolute;left:0;top:-204px;display:block;max-width:none}
 
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

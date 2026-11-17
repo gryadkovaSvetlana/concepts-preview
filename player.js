@@ -1,7 +1,9 @@
 // Figma motion player: rebuilds a page from its base render + animated units (exported layers)
 // and replays the units' real Figma keyframe tracks with the Web Animations API.
 (function () {
-  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // The presentation exists to show the motion, so it ignores the OS «reduce motion» setting
+  // (the client's machines have it on). The production site should still respect it.
+  const REDUCED = false;
   const FPS = 30;
 
   // ---- easing ----
