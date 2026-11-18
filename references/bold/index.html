@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Витаниум — смелые идеи</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+/* Layout: narrow reading column; each direction is a band with two reference cards side by side, stacking on phones */
+:root {
+  --bg: #fbfaff;
+  --surface: #ffffff;
+  --fg: #1d1630;
+  --muted: #625a78;
+  --line: #e6e1f3;
+  --accent: #7a45f0;
+  --accent-soft: #f1ebff;
+  --warn: #9a5a00;
+  --font: "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141020; --surface: #1c1730; --fg: #eeeaf7; --muted: #a79fbd; --line: #2e2747;
+  --accent: #b393ff; --accent-soft: #261f40; --warn: #f0b45c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #141020; --surface: #1c1730; --fg: #eeeaf7; --muted: #a79fbd; --line: #2e2747;
+  --accent: #b393ff; --accent-soft: #261f40; --warn: #f0b45c; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 48px 72px; display: grid; gap: 56px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: clamp(30px, 4.6vw, 48px); line-height: 1.1; }
+h2 { font-size: clamp(22px, 2.8vw, 30px); line-height: 1.2; }
+h3 { font-size: 19px; line-height: 1.3; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.lede { max-width: 62ch; color: var(--muted); font-size: 18px; }
+.intro { display: grid; gap: 18px; }
+.date { color: var(--muted); font-size: 14px; }
+
+.traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.trait { background: var(--accent-soft); border-radius: 14px; padding: 18px; display: grid; gap: 6px; }
+.trait b { font-weight: 600; }
+.trait span { color: var(--muted); font-size: 15px; }
+
+.dir { display: grid; gap: 20px; }
+.dir-head { display: grid; gap: 8px; max-width: 70ch; }
+.tag { font-size: 14px; font-weight: 500; color: var(--accent); }
+.dir-head p { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+.card-body { padding: 18px 20px 20px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.card-body h3 a { color: var(--fg); text-decoration: none; }
+.card-body h3 a:hover { color: var(--accent); }
+.url { font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+dl { margin: 0; display: grid; gap: 10px; }
+dt { font-size: 13px; font-weight: 600; color: var(--muted); }
+dd { margin: 2px 0 0; font-size: 15px; }
+.careful dd { color: var(--warn); }
+
+.pick { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 16px; }
+.pick ol { margin: 0; padding-left: 22px; display: grid; gap: 10px; max-width: 70ch; }
+.pick li::marker { color: var(--accent); font-weight: 600; }
+.notes { display: grid; gap: 10px; color: var(--muted); font-size: 15px; max-width: 75ch; }
+.notes h2 { color: var(--fg); font-size: 20px; }
+.notes ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.careful dt { color: var(--warn); }
+.card img.fit { object-fit: contain; background: var(--accent-soft); }
+.cards.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 700px) { .cards.two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="intro">
+    <p class="date">Подборка от 18 ноября 2026 · все сайты проверены, открываются без VPN</p>
+    <h1>Смелые идеи: если выйти за рамки ТЗ</h1>
+    <p class="lede">ТЗ описывает простой минималистичный сайт БАД. Здесь — что можно сделать, если отпустить эти рамки. Единственное правило подборки: никаких фото реальных людей. Нарисованные персонажи и миниатюрные фигурки допустимы. У каждого референса отмечено, какие пункты ТЗ он нарушает — это решение заказчика.</p>
+  </header>
+
+  <section class="dir" aria-labelledby="t-1">
+    <div class="dir-head">
+      <p class="tag">Направление 1 · премиально</p>
+      <h2 id="t-1">Ботаника и кино: ингредиент как герой</h2>
+      <p>Крупные растения и свет как в кино, огромный заголовок на одном насыщенном цвете. У Витаниума есть готовые герои: эхинацея, лиственница (дигидрокверцетин), шиповник для витамина C.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img src="img/bright.jpg" alt="Bright Biotech: глубокий зелёный фон, цветущее растение, огромный салатовый заголовок «Growing a Better Future»" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://www.brightbiotech.co.uk/" target="_blank" rel="noopener">Bright Biotech</a></h3>
+          <p class="url">brightbiotech.co.uk · Awwwards, сайт дня</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Растение растёт на скролле, камера приближается к листу. Два цвета на весь сайт, огромный шрифт.</dd></div>
+            <div><dt>Что берём</dt><dd>Каждая категория начинается с макро её растения или формы выпуска. Один фирменный цвет на весь экран, заголовок крупно.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Тёмные цветные экраны вместо светлого фона, заметная анимация.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/organimo.jpg" alt="Organimo: банка стоит на скале среди облаков, сиреневое небо" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://organimo.com/" target="_blank" rel="noopener">Organimo</a></h3>
+          <p class="url">organimo.com · Awwwards, подборка «скролл страницы продукта»</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Банка как памятник на скале, мир вокруг собирается на скролле, мягкий свет.</dd></div>
+            <div><dt>Что берём</dt><dd>Можно и в ночной сцене: банка Витаниума на скале из таблеток или в лесу лиственниц. Это город 2.5D в кино-варианте.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Тёмный фон, заставка, сильная анимация.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="dir" aria-labelledby="t-2">
+    <div class="dir-head">
+      <p class="tag">Направление 2 · ярко и с характером</p>
+      <h2 id="t-2">Цвет и характер: сайт как журнал</h2>
+      <p>Плитки разных цветов, фото продукта с фактурой, крупный узкий шрифт, рукописные пометки. Цвета упаковок Витаниума становятся цветами блоков: у каждой категории свой.</p>
+    </div>
+    <div class="cards two">
+      <article class="card">
+        <img src="img/poppi.jpg" alt="Poppi: сетка из ярких цветных плиток — банка, фрукты, смайлик, надпись «Looking juicy»" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://drinkpoppi.com/" target="_blank" rel="noopener">Poppi</a></h3>
+          <p class="url">drinkpoppi.com · газировка с пребиотиками</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Сетка из плиток разных цветов: продукт, фрукты, надписи. Каждая плитка — отдельная маленькая афиша.</dd></div>
+            <div><dt>Что берём</dt><dd>Каталог «Для чего» как мозаика: плитка категории в цвете её упаковки, внутри банка и ингредиент.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Цветные фоны блоков, больше одного цвета, «развлекательный» тон.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/oatly.jpg" alt="Oatly: огромный узкий заголовок «The Future of Taste Report» поверх фото стакана и полароидов" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://www.oatly.com/" target="_blank" rel="noopener">Oatly</a></h3>
+          <p class="url">oatly.com · овсяные напитки</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Сайт собран как журнал: окна-карточки, огромный узкий шрифт, полароиды. Узнаётся с первого экрана.</dd></div>
+            <div><dt>Что берём</dt><dd>Голос и подачу: «Преимущества» и «О производителе» как журнальные развороты, а не список.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Заглавные буквы, второй шрифт, плотная вёрстка. Ниже по странице есть фото людей — их не берём.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img class="fit" src="img/done.jpg" alt="Done: карточки вкусов — пачка напитка на подиуме с шоколадом, карамелью или клубникой, каждая плитка в цвете своего вкуса" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://donedrinks.com/" target="_blank" rel="noopener">Done</a></h3>
+          <p class="url">donedrinks.com · протеиновый напиток · без VPN может не открыться, смотрите скриншот</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Каждый вкус — своя плитка в цвете упаковки: продукт на подиуме, рядом его ингредиент.</dd></div>
+            <div><dt>Что берём</dt><dd>Каталог Витаниума так же: банка на подиуме, рядом ингредиент (шиповник, эхинацея, цинк), фон в цвете упаковки.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Цветные фоны, шрифт с засечками. Ниже на странице фото основателя — не берём.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/boost.jpg" alt="BOOST: оранжевый фон, огромный белый заголовок «Because being sick sucks», справа парит оранжевая банка" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://takeboost.com/" target="_blank" rel="noopener">BOOST</a></h3>
+          <p class="url">takeboost.com · жевательные витамины для иммунитета · без VPN может не открыться, смотрите скриншот</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Огромный шрифт на весь экран и одна банка в 3D, которая парит рядом. Дерзкий тон.</dd></div>
+            <div><dt>Что берём</dt><dd>Смелый первый экран: короткая фраза крупно и одна банка. Самый громкий вариант из всех.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Заглавные буквы, градиент, дерзкий рекламный тон.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="dir" aria-labelledby="t-3">
+    <div class="dir-head">
+      <p class="tag">Направление 3 · продолжает город</p>
+      <h2 id="t-3">Иллюстрация и игра: нарисованный мир на упаковке</h2>
+      <p>Нарисованные персонажи, наклейки, бейджи с цифрами, рукописные стрелки. Это прямое продолжение миниатюрных фигурок из концепции «Город»: людей рисуем, а не фотографируем.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img src="img/magicspoon.jpg" alt="Magic Spoon: розово-фиолетовый фон, коробка с нарисованным персонажем, вокруг клубника, бейджи «0 g sugar»" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://magicspoon.com/" target="_blank" rel="noopener">Magic Spoon</a></h3>
+          <p class="url">magicspoon.com · протеиновые хлопья</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Насыщенный цвет, нарисованные персонажи на упаковке, факты в виде круглых бейджей.</dd></div>
+            <div><dt>Что берём</dt><dd>У каждой категории свой нарисованный помощник. Статистика «>25 лет», «48 продуктов» в виде бейджей-наклеек.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Градиентный фон, иллюстрации, рекламный тон. Розовый у нас в исключённых цветах — берём приём, не палитру.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/more.jpg" alt="More Nutrition: зелёный экран, банка в 3D, вокруг кружки с цифрами и рукописная подпись" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://more-nutrition.webflow.io/" target="_blank" rel="noopener">More Nutrition</a></h3>
+          <p class="url">more-nutrition.webflow.io · Awwwards, сайт дня 3.11.2025</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>3D-банка плюс рукописные пометки и бейджи: техничность и живость вместе.</dd></div>
+            <div><dt>Что берём</dt><dd>Рукописные стрелки и подписи рядом с продуктом — у нас уже есть рукописное подчёркивание, это его развитие.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Заглавные буквы, второй (рукописный) шрифт, анимация.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img class="fit" src="img/holy.jpg" alt="Holy: красный блок с нарисованными персонажами — клубника в короне, кубик сахара, цветок, солнце" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://holy.com/" target="_blank" rel="noopener">Holy</a></h3>
+          <p class="url">holy.com · напитки без сахара · без VPN может не открыться, смотрите скриншот</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Преимущества показаны нарисованными персонажами: клубника, грустный кубик сахара, цветок.</dd></div>
+            <div><dt>Что берём</dt><dd>Шесть преимуществ Витаниума — шесть нарисованных персонажей вместо иконок. Те же герои могут жить в городе.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Цветной фон, иллюстрации вместо иконок. Первый экран у них с ценой и акцией, ниже фото основателей — это не берём.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="dir" aria-labelledby="t-4">
+    <div class="dir-head">
+      <p class="tag">Направление 4 · дорого и тактильно</p>
+      <h2 id="t-4">Предметная съёмка: упаковка как объект</h2>
+      <p>Настоящие коробки и банки, снятые как натюрморт: дерево, камень, тёплый свет. Или упаковки в ритме по диагонали. Самое «дорогое» ощущение без иллюстраций.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img src="img/dailyspoon.jpg" alt="Daily Spoon: пакет добавки на деревянном табурете, тёплый свет, заголовок «Supplements that have nothing to hide»" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://byandstudio.com/work/daily-spoon/" target="_blank" rel="noopener">Daily Spoon</a></h3>
+          <p class="url">byandstudio.com · кейс студии, бренд БАД 2025</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Упаковка добавки снята как предмет интерьера. Винный цвет, классический шрифт, много воздуха.</dd></div>
+            <div><dt>Что берём</dt><dd>Съёмку наших коробок и банок в материале, глубокий фирменный цвет вместо белого фона.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Цветные фоны, второй шрифт с засечками. Сайт студии иногда не открывается с первого раза.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/huel.jpg" alt="Huel: белый экран, упаковки и бутылки лежат ровными диагональными рядами справа от заголовка" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://huel.com/" target="_blank" rel="noopener">Huel</a></h3>
+          <p class="url">huel.com · спортивное питание</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Упаковки уложены по диагонали ровным ритмом, как узор. Чёрно-белая строгость.</dd></div>
+            <div><dt>Что берём</dt><dd>Вся линейка Витаниума диагональными рядами — это смелый вариант «стены упаковок».</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Почти ничего, кроме курсива в заголовке. Сайт иногда не открывается с первого раза.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/proper.jpg" alt="Proper: матовые бутылки с цветными напитками в брызгах воды на светлом фоне" loading="lazy">
+        <div class="card-body">
+          <h3><a href="https://properhealth.com/" target="_blank" rel="noopener">Proper</a></h3>
+          <p class="url">properhealth.com · Awwwards, номинант 2026 · без VPN может не открыться, смотрите скриншот</p>
+          <dl>
+            <div><dt>Чем стильно</dt><dd>Предметная съёмка с водой и брызгами: продукт выглядит свежим и осязаемым.</dd></div>
+            <div><dt>Что берём</dt><dd>Съёмку банок и коробок Витаниума с фактурой: вода, стекло, таблетки.</dd></div>
+            <div class="careful"><dt>Нарушает ТЗ</dt><dd>Почти ничего: светлый фон, спокойно. Ниже обычный каталог с ценами — его не берём.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="pick" aria-labelledby="t-pick">
+    <h2 id="t-pick">Что предлагаем</h2>
+    <ol>
+      <li><b>Направление 3, «Иллюстрация и игра».</b> Продолжает уже понравившиеся миниатюры, отличает Витаниум от аптечной полки и не требует фото людей.</li>
+      <li><b>Направление 1, «Ботаника и кино».</b> Самое премиальное; у линейки есть естественные герои-растения.</li>
+      <li>Направления 2 и 4 — приёмы, которые можно добавить к любому: мозаика каталога по цветам упаковок, натюрморт коробок.</li>
+    </ol>
+    <p>Любое из них выходит за ТЗ. Если заказчик готов отойти от «светлого и минималистичного», нужно его явное согласие до начала работы: иначе к сдаче в начале декабря вернёмся к спору о ТЗ.</p>
+  </section>
+
+  <section class="notes" aria-labelledby="t-notes">
+    <h2 id="t-notes">Что отсеяли и почему</h2>
+    <ul>
+      <li>Vibe, Spylt, Wizard Wellness, Liquid Death — люди на первом экране.</li>
+      <li>Tony’s Chocolonely — вместо сайта выбор страны. iGel — синий.</li>
+      <li>Recess, Graza, Aesop, Haeckels, Olipop, Ghia, Lyma, Who Gives a Crap, Mid-Day Squares, Lemonaid, yfood — не открываются без VPN.</li>
+    </ul>
+    <p>Done, BOOST, Holy и Proper у нас не открылись — скриншоты сделаны вручную через браузер с доступом.</p>
+    <p>Спокойные варианты в рамках ТЗ — в <a class="back" href="../" target="_blank" rel="noopener">первой подборке</a>.</p>
+  </section>
+
+</div>
+</body>
+</html>
